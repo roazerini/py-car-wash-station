@@ -38,11 +38,9 @@ class CarWashStation:
         )
         return round(price, 1)
 
-    def wash_single_car(self, car: Car) -> float:
-        price = self.calculate_washing_price(car)
-        if price > 0:
+    def wash_single_car(self, car: Car) -> None:
+        if car.clean_mark < self.clean_power:
             car.clean_mark = self.clean_power
-        return price
 
     def serve_cars(self, cars: list[Car]) -> float:
         total = 0.0
